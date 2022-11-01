@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="stu" class="xyz.mwszksnmdys.spring5.collectionType.Stu">
+        <property name="courses">
+          <!--数组类型注入 也可使用list标签-->
+            <array>
+                <value>java</value>
+                <value>mysql</value>
+            </array>
+        </property>
+        <!--list类型注入-->
+        <property name="list">
+            <list>
+                <value>测试</value>
+                <value>测试2</value>
+            </list>
+        </property>
+        <!--map类型注入-->
+        <property name="maps">
+            <map>
+                <entry key="键" value="值"></entry>
+                <entry key="key" value="value"></entry>
+            </map>
+        </property>
+        <!--set类型注入-->
+        <property name="set">
+            <set>
+                <value>php</value>
+                <value>javascript</value>
+            </set>
+        </property>
+        <!--注入list集合类型，集合元素为对象-->
+        <property name="courseList">
+            <list>
+                <ref bean="course1"></ref>
+                <ref bean="course2"></ref>
+            </list>
+        </property>
+    </bean>
+    <bean id="course1" class="xyz.mwszksnmdys.spring5.collectionType.Course">
+        <property name="cname" value="Spring5框架"></property>
+    </bean>
+    <bean id="course2" class="xyz.mwszksnmdys.spring5.collectionType.Course">
+        <property name="cname" value="Mybatis框架"></property>
+    </bean>
+</beans>

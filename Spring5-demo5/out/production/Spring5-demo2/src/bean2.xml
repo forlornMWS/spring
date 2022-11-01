@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+<!--    若需要提取bean公用 需要引入名称空间util-->
+<!--    提取list集合类型属性注入使用-->
+    <util:list id="bookList">
+        <value>哈利波特</value>
+        <value>三体</value>
+    </util:list>
+    <!--    scope属性用于设置bean是单实例（singleton，默认）还是多实例（prototype)-->
+    <bean id="book" class="xyz.mwszksnmdys.spring5.collectionType.Book" scope="prototype">
+        <property name="list" ref="bookList"></property>
+    </bean>
+</beans>
